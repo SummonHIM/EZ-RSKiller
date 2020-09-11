@@ -1,37 +1,29 @@
-## Welcome to GitHub Pages
+---
+layout: default
+---
+# 红蜘蛛杀手(EZ-RSKiller)官方网站
+*没有之一*
+### 卧槽这啥我怕怕？我要回去。
+[哦](https://yxsw1802.com.cn)
+## 下载链接
+点击上方 .zip 按钮下载
 
-You can use the [editor on GitHub](https://github.com/SummonHIM/EZ-RSKiller/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+本脚本已经成功拷贝到学生可读文件夹。位置为学生可读内的.TEMP文件夹。
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+没找到？先检查是否启用了隐藏文件夹[（教程）](https://support.microsoft.com/zh-cn/help/14201/windows-show-hidden-files)。开启了也没有就是被管理员爆破了。
+## 使用提示
+1.最好将本脚本解压并复制到D盘等非自动恢复磁盘任意处，防止文件被重置。
 
-### Markdown
+2.管理员可能会屑除本脚本，建议用纸笔记下本脚本永久网址：[ez.yxsw1802.github.io](https://ez.yxsw1802.com.cn)。
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+3.如果已经被控制，请使用Ctrl+Alt+Delete键进入安全模式。点击"切换用户"，然后点击用户头像即可脱离控制。(该方法仅Windows7系统有效)
 
-```markdown
-Syntax highlighted code block
+4.本网站无法访问？请使用21世纪的浏览器访问本网站：如[Google Chrome](https://www.google.cn/chrome/index.html)，[Firefox](http://www.firefox.com.cn/)，[Edge](https://www.microsoft.com/zh-cn/windows/microsoft-edge)，以及各种Chrome暴力换壳浏览器（如[360暴力换壳浏览器](https://browser.360.cn/)、[QQ暴力换壳浏览器](https://browser.qq.com)）等。生蛆Internet Explorer(IE)浏览器无法访问本网站。
 
-# Header 1
-## Header 2
-### Header 3
+5.谢绝无脑 anti 爆破本脚本。
+## 开源许可协议
+This Source Code Form is subject to the terms of the Mozilla Public
 
-- Bulleted
-- List
+License, v. 2.0. If a copy of the MPL was not distributed with this
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/SummonHIM/EZ-RSKiller/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+file, You can obtain one at https://mozilla.org/MPL/2.0/.
