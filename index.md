@@ -14,7 +14,7 @@ layout: default
 ## 使用提示
 1.最好将本脚本解压并复制到D盘等非自动恢复磁盘任意处，防止文件被重置。
 
-2.管理员可能会屑除本脚本，建议用纸笔记下本脚本永久网址：[ez.yxsw1802.github.io](https://ez.yxsw1802.com.cn)。
+2.管理员可能会屑除本脚本，建议用纸笔记下本脚本永久网址：[https://summonhim.github.io/EZ-RSKiller/](https://summonhim.github.io/EZ-RSKiller/)。
 
 3.如果已经被控制，请使用Ctrl+Alt+Delete键进入安全模式。点击"切换用户"，然后点击用户头像即可脱离控制。(该方法仅Windows7系统有效)
 
