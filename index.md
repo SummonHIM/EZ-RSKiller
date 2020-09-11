@@ -6,7 +6,7 @@ layout: default
 ### 卧槽这啥我怕怕？我要回去。
 [哦](https://yxsw1802.com.cn)
 ## 下载链接
-点击上方 .zip 按钮下载
+[点击这里](https://github.com/SummonHIM/EZ-RSKiller/releases/download/5.0/EZ-RSKiller.zip)
 
 本脚本已经成功拷贝到学生可读文件夹。位置为学生可读内的.TEMP文件夹。
 
