@@ -176,10 +176,10 @@ echo 下次启动内容为：关闭红蜘蛛。
 )
 )
 echo,
-echo 本脚本易被管理员爆破，建议用纸笔记下永久网址：ez.yxsw1802.com.cn
-echo 本脚本易被管理员爆破，建议用纸笔记下永久网址：ez.yxsw1802.com.cn
-echo 本脚本易被管理员爆破，建议用纸笔记下永久网址：ez.yxsw1802.com.cn
-msg * 本脚本易被管理员爆破，建议用纸笔记下永久网址：ez.yxsw1802.com.cn
+echo 本脚本易被管理员爆破，建议用纸笔记下永久网址：https://summonhim.github.io/EZ-RSKiller/
+echo 本脚本易被管理员爆破，建议用纸笔记下永久网址：https://summonhim.github.io/EZ-RSKiller/
+echo 本脚本易被管理员爆破，建议用纸笔记下永久网址：https://summonhim.github.io/EZ-RSKiller/
+msg * 本脚本易被管理员爆破，建议用纸笔记下永久网址：https://summonhim.github.io/EZ-RSKiller/
 if exist "%DesktopLocale%RSOKR.vbs" (
   goto Exiting
 )
