@@ -5,7 +5,7 @@ mode con cols=66 lines=30
 ver|find "Windows XP" > NUL && set System=WinXP
 if "%System%"=="WinXP" (
   set DocumentsLocale=C:\Documents and Settings\%username%\My Documents\
-  set DesktopLocale=C:\Documents and Settings\%username%\×ÀÃæ\
+  set DesktopLocale=C:\Documents and Settings\%username%\æ¡Œé¢\
   copy %0 "C:\Documents and Settings\%username%\My Documents\EZ.bat"
   goto NoAdmin
 ) else (
@@ -13,12 +13,12 @@ if "%System%"=="WinXP" (
   set DesktopLocale=C:\Users\%username%\Desktop\
   copy %0 "C:\Users\%username%\Documents\EZ.bat"
 )
-echo /////     ÇëÔÊĞí¹ÜÀíÔ±È¨ÏŞ£¡     /////
+echo /////     è¯·å…è®¸ç®¡ç†å‘˜æƒé™ï¼     /////
 %1 mshta vbscript:CreateObject("Shell.Application").ShellExecute("cmd.exe","/c %~s0 ::","","runas",1)(window.close)&&exit >nul
 :NoAdmin
-title ºìÖ©ÖëÉ±ÊÖ V%version%
+title çº¢èœ˜è››æ€æ‰‹ V%version%
 cls
-echo                            ºìÖ©ÖëÉ±ÊÖ
+echo                            çº¢èœ˜è››æ€æ‰‹
 echo                               V%version%
 echo                     Copyright %date:~0,4% SummonHIM.
 if exist "%DocumentsLocale%REDLocal.ini" (goto CheckRedAgentStatus) else (goto FirstTimeRun)
@@ -26,10 +26,10 @@ if exist "%DocumentsLocale%REDLocal.ini" (goto CheckRedAgentStatus) else (goto F
 :FirstTimeRun
 color 4E
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-echo Ê×´ÎÆô¶¯£¬ÕıÔÚ²éÕÒºìÖ©Öë¾ßÌåÎ»ÖÃ¡£ÇëÉÔºò...
-echo ²éÕÒËÙ¶È¿ÉÄÜ½ÏÂı£¬ÇëÄÍĞÄµÈ´ı£¡
+echo é¦–æ¬¡å¯åŠ¨ï¼Œæ­£åœ¨æŸ¥æ‰¾çº¢èœ˜è››å…·ä½“ä½ç½®ã€‚è¯·ç¨å€™...
+echo æŸ¥æ‰¾é€Ÿåº¦å¯èƒ½è¾ƒæ…¢ï¼Œè¯·è€å¿ƒç­‰å¾…ï¼
 echo,
-echo Î»ÓÚ %DocumentsLocale%REDLocal.ini µÄÎÄ¼ş¾¡Á¿²»ÒªÉ¾³ı£¬¸ÃÎÄ¼şÓÃÓÚ¶¨Î»ºìÖ©Öë¾ßÌåÎ»ÖÃ£¡
+echo ä½äº %DocumentsLocale%REDLocal.ini çš„æ–‡ä»¶å°½é‡ä¸è¦åˆ é™¤ï¼Œè¯¥æ–‡ä»¶ç”¨äºå®šä½çº¢èœ˜è››å…·ä½“ä½ç½®ï¼
 echo,
 set FindData=0
 :FTRReFind
@@ -46,9 +46,9 @@ for /r c:\ %%i in (NetTalk.exe*)do (
     set FindData=0
   )
   set /a FindData=%FindData%+1
-  echo ²éÑ¯µ½Â·¾¶£¨ºìÖ©Öë 6.0£©£º%%~dpi
+  echo æŸ¥è¯¢åˆ°è·¯å¾„ï¼ˆçº¢èœ˜è›› 6.0ï¼‰ï¼š%%~dpi
   if not exist %%~dpiREDAgent.exe (
-    if not exist %%~dpiREDAgent0.exe (goto FTRReFind) else (goto FTRContinue)
+    if not exist %%~dpiREDAgent.0 (goto FTRReFind) else (goto FTRContinue)
   ) else (
     goto FTRContinue
   )
@@ -67,41 +67,41 @@ for /r c:\ %%i in (edpaper.exe*)do (
     set FindData=0
   )
   set /a FindData=%FindData%+1
-  echo ²éÑ¯µ½Â·¾¶£¨ºìÖ©Öë 7.0£©£º%%~dpi
+  echo æŸ¥è¯¢åˆ°è·¯å¾„ï¼ˆçº¢èœ˜è›› 7.0ï¼‰ï¼š%%~dpi
   if not exist %%~dpiREDAgent.exe (
-    if not exist %%~dpiREDAgent0.exe (goto FTRReFind) else (goto FTRContinue)
+    if not exist %%~dpiREDAgent.0 (goto FTRReFind) else (goto FTRContinue)
   ) else (
     goto FTRContinue
   )
 )
 :FTRContinue
 echo,
-echo ²éÕÒ½áÊø£¬ºìÖ©ÖëÈí¼şµÄÂ·¾¶Îª£º
+echo æŸ¥æ‰¾ç»“æŸï¼Œçº¢èœ˜è››è½¯ä»¶çš„è·¯å¾„ä¸ºï¼š
 echo %RedAgentPath%
 echo,
-echo ÕıÔÚ½«Â·¾¶±£´æµ½ %DocumentsLocale%REDLocal.ini
+echo æ­£åœ¨å°†è·¯å¾„ä¿å­˜åˆ° %DocumentsLocale%REDLocal.ini
 echo %RedAgentPath%>"%DocumentsLocale%REDLocal.ini"
-if not exist "%DocumentsLocale%REDLocal.ini" (goto NoAccess) else (echo ±£´æ³É¹¦£¡)
+if not exist "%DocumentsLocale%REDLocal.ini" (goto NoAccess) else (echo ä¿å­˜æˆåŠŸï¼)
 
 :CheckRedAgentStatus
 set /P RedAgentPath=<"%DocumentsLocale%REDLocal.ini"
 if exist "%RedAgentPath%REDAgent.exe" goto ShutdownRedAgent
-if exist "%RedAgentPath%REDAgent0.exe" (goto StartRedAgent) ELSE (goto RedAgentNotFound)
+if exist "%RedAgentPath%REDAgent.0" (goto StartRedAgent) ELSE (goto RedAgentNotFound)
 
 :RedAgentNotFound
 cls
 color 4E
-echo                            ºìÖ©ÖëÉ±ÊÖ
+echo                            çº¢èœ˜è››æ€æ‰‹
 echo                               V%version%
 echo                     Copyright %date:~0,4% SummonHIM.
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-echo ºìÖ©ÖëÈí¼şÂ·¾¶£º%RedAgentPath%
+echo çº¢èœ˜è››è½¯ä»¶è·¯å¾„ï¼š%RedAgentPath%
 echo,
-echo ±¾³ÌĞòÎ´²éÕÒµ½ºìÖ©ÖëÈí¼ş£¡
-echo ÊÇ·ñÖØĞÂËÑË÷ºìÖ©ÖëËùÔÚÎ»ÖÃ£¿
-echo £¨¿ÉÒÔÊÖ¶¯ĞŞ¸Ä %DocumentsLocale%REDLocal.ini Â·¾¶ÎÄ¼ş¡££©
+echo æœ¬ç¨‹åºæœªæŸ¥æ‰¾åˆ°çº¢èœ˜è››è½¯ä»¶ï¼
+echo æ˜¯å¦é‡æ–°æœç´¢çº¢èœ˜è››æ‰€åœ¨ä½ç½®ï¼Ÿ
+echo ï¼ˆå¯ä»¥æ‰‹åŠ¨ä¿®æ”¹ %DocumentsLocale%REDLocal.ini è·¯å¾„æ–‡ä»¶ã€‚ï¼‰
 echo,
-echo Y£½ÊÇ£¬N£½ÍË³ö£¬E=×Ô¶¨ÒåºìÖ©ÖëÂ·¾¶¡£ÊäÈëÍê±ÏÔò°´»Ø³µ¼ü¼ÌĞø¡£
+echo Yï¼æ˜¯ï¼ŒNï¼é€€å‡ºï¼ŒE=è‡ªå®šä¹‰çº¢èœ˜è››è·¯å¾„ã€‚è¾“å…¥å®Œæ¯•åˆ™æŒ‰å›è½¦é”®ç»§ç»­ã€‚
 set NotFoundYorN=
 set /p NotFoundYorN=[Y/N/E]:
 if "%NotFoundYorN%" == "y" set NotFoundYorN=Y
@@ -110,90 +110,90 @@ if "%NotFoundYorN%" == "e" set NotFoundYorN=E
 if "%NotFoundYorN%" == "Y" goto FirstTimeRun
 if "%NotFoundYorN%" == "N" goto Exiting
 if "%NotFoundYorN%" == "E" goto EditRedLocal
-echo ¸ÃÃüÁî "%NotFoundYorN%" ²»´æÔÚ!
-echo ÃüÁîÌáÊ¾:Y£½ÊÇ£¬N£½ÍË³ö£¬E=×Ô¶¨ÒåºìÖ©ÖëÂ·¾¶(²»Çø·Ö´óĞ¡Ğ´)
+echo è¯¥å‘½ä»¤ "%NotFoundYorN%" ä¸å­˜åœ¨!
+echo å‘½ä»¤æç¤º:Yï¼æ˜¯ï¼ŒNï¼é€€å‡ºï¼ŒE=è‡ªå®šä¹‰çº¢èœ˜è››è·¯å¾„(ä¸åŒºåˆ†å¤§å°å†™)
 pause
 cls
 goto RedAgentNotFound
 
 :EditRedLocal
 echo,
-echo Çë½«ºìÖ©ÖëÈí¼şµÄÂ·¾¶ÊäÈëµ½´Ë´¦¡£
-echo Àı£ºC:\Program Files\3000soft\Red Spider\
-echo ÇëÎñ±ØÔÚÂ·¾¶×îºóÃæ¼ÓÒ»¸öÏÂ»®Ïß¡°\¡±£¬±ÜÃâ´íÎó£¡
+echo è¯·å°†çº¢èœ˜è››è½¯ä»¶çš„è·¯å¾„è¾“å…¥åˆ°æ­¤å¤„ã€‚
+echo ä¾‹ï¼šC:\Program Files\3000soft\Red Spider\
+echo è¯·åŠ¡å¿…åœ¨è·¯å¾„æœ€åé¢åŠ ä¸€ä¸ªä¸‹åˆ’çº¿â€œ\â€ï¼Œé¿å…é”™è¯¯ï¼
 echo,
 set /p RedAgentPath=
 echo,
-echo ÕıÔÚ½«Â·¾¶±£´æµ½ %DocumentsLocale%REDLocal.ini
+echo æ­£åœ¨å°†è·¯å¾„ä¿å­˜åˆ° %DocumentsLocale%REDLocal.ini
 echo %RedAgentPath%>"%DocumentsLocale%REDLocal.ini"
-if not exist "%DocumentsLocale%REDLocal.ini" (goto NoAccess) else (echo ±£´æ³É¹¦£¡)
+if not exist "%DocumentsLocale%REDLocal.ini" (goto NoAccess) else (echo ä¿å­˜æˆåŠŸï¼)
 pause
 goto Head
 
 :ShutdownRedAgent
 color 4E
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-echo ÕıÔÚÖ´ĞĞÒ»¼ü¹Ø±Õ³ÌĞò...
+echo æ­£åœ¨æ‰§è¡Œä¸€é”®å…³é—­ç¨‹åº...
 taskkill /f /im REDAgent.exe /t
-rename "%RedAgentPath%REDAgent.exe" REDAgent0.exe
+rename "%RedAgentPath%REDAgent.exe" REDAgent.0
 if errorlevel 1 (goto NoAccess)
-echo ÒÑ½« REDAgent.exe ÖØÃüÃûÎª REDAgent0.exe
-echo ÕıÔÚÍê³É£¡
+echo å·²å°† REDAgent.exe é‡å‘½åä¸º REDAgent.0
+echo æ­£åœ¨å®Œæˆï¼
 set RedAgentStatus=Closed
 goto Finish
 
 :StartRedAgent
 color 4E
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-echo È·¶¨Òª»Ö¸´ºìÖ©ÖëÈí¼şÂğ£¿
-echo ·ñÔò¹Ø±Õ´Ë³ÌĞò¼´¿É¡£
+echo ç¡®å®šè¦æ¢å¤çº¢èœ˜è››è½¯ä»¶å—ï¼Ÿ
+echo å¦åˆ™å…³é—­æ­¤ç¨‹åºå³å¯ã€‚
 echo,
-echo °´ÈÎÒâ¼ü¼ÌĞø²Ù×÷...
+echo æŒ‰ä»»æ„é”®ç»§ç»­æ“ä½œ...
 pause >nul
-rename "%RedAgentPath%REDAgent0.exe" REDAgent.exe
+rename "%RedAgentPath%REDAgent.0" REDAgent.exe
 if errorlevel 1 (goto NoAccess)
-echo ÒÑ½« REDAgent0.exe ÖØÃüÃûÎª REDAgent.exe
-echo ÕıÔÚÇ¿ÖÆÆô¶¯ºìÖ©ÖëÈí¼ş...
+echo å·²å°† REDAgent.0 é‡å‘½åä¸º REDAgent.exe
+echo æ­£åœ¨å¼ºåˆ¶å¯åŠ¨çº¢èœ˜è››è½¯ä»¶...
 start /d "%RedAgentPath%" REDAgent.exe
-echo ÕıÔÚÍê³É£¡
+echo æ­£åœ¨å®Œæˆï¼
 set RedAgentStatus=Started
 goto Finish
 
 :Finish
 color 2F
 cls
-echo                            ºìÖ©ÖëÉ±ÊÖ
+echo                            çº¢èœ˜è››æ€æ‰‹
 echo                               V%version%
 echo                     Copyright %date:~0,4% SummonHIM.
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 if "%RedAgentStatus%" == "Closed" (
-echo                         ºìÖ©ÖëÈí¼şÒÑ¹Ø±Õ£¡
-echo ÏÂ´ÎÆô¶¯ÄÚÈİÎª£º»Ö¸´ºìÖ©Öë¡£
+echo                         çº¢èœ˜è››è½¯ä»¶å·²å…³é—­ï¼
+echo ä¸‹æ¬¡å¯åŠ¨å†…å®¹ä¸ºï¼šæ¢å¤çº¢èœ˜è››ã€‚
 ) ELSE (
 if "%RedAgentStatus%" == "Started" (
-echo                         ºìÖ©ÖëÈí¼şÒÑ»Ö¸´£¡
-echo ÏÂ´ÎÆô¶¯ÄÚÈİÎª£º¹Ø±ÕºìÖ©Öë¡£
+echo                         çº¢èœ˜è››è½¯ä»¶å·²æ¢å¤ï¼
+echo ä¸‹æ¬¡å¯åŠ¨å†…å®¹ä¸ºï¼šå…³é—­çº¢èœ˜è››ã€‚
 )
 )
 echo,
-echo ±¾½Å±¾Ò×±»¹ÜÀíÔ±±¬ÆÆ£¬½¨ÒéÓÃÖ½±Ê¼ÇÏÂÓÀ¾ÃÍøÖ·£ºhttps://summonhim.github.io/EZ-RSKiller/
-echo ±¾½Å±¾Ò×±»¹ÜÀíÔ±±¬ÆÆ£¬½¨ÒéÓÃÖ½±Ê¼ÇÏÂÓÀ¾ÃÍøÖ·£ºhttps://summonhim.github.io/EZ-RSKiller/
-echo ±¾½Å±¾Ò×±»¹ÜÀíÔ±±¬ÆÆ£¬½¨ÒéÓÃÖ½±Ê¼ÇÏÂÓÀ¾ÃÍøÖ·£ºhttps://summonhim.github.io/EZ-RSKiller/
-msg * ±¾½Å±¾Ò×±»¹ÜÀíÔ±±¬ÆÆ£¬½¨ÒéÓÃÖ½±Ê¼ÇÏÂÓÀ¾ÃÍøÖ·£ºhttps://summonhim.github.io/EZ-RSKiller/
+echo æœ¬è„šæœ¬æ˜“è¢«ç®¡ç†å‘˜çˆ†ç ´ï¼Œå»ºè®®ç”¨çº¸ç¬”è®°ä¸‹æ°¸ä¹…ç½‘å€ï¼šez.summonhim.xyz
+echo æœ¬è„šæœ¬æ˜“è¢«ç®¡ç†å‘˜çˆ†ç ´ï¼Œå»ºè®®ç”¨çº¸ç¬”è®°ä¸‹æ°¸ä¹…ç½‘å€ï¼šez.summonhim.xyz
+echo æœ¬è„šæœ¬æ˜“è¢«ç®¡ç†å‘˜çˆ†ç ´ï¼Œå»ºè®®ç”¨çº¸ç¬”è®°ä¸‹æ°¸ä¹…ç½‘å€ï¼šez.summonhim.xyz
+msg * æœ¬è„šæœ¬æ˜“è¢«ç®¡ç†å‘˜çˆ†ç ´ï¼Œå»ºè®®ç”¨çº¸ç¬”è®°ä¸‹æ°¸ä¹…ç½‘å€ï¼šez.summonhim.xyz
 if exist "%DesktopLocale%RSOKR.vbs" (
   goto Exiting
 )
 echo,
-echo ÊÇ·ñÉèÖÃÒ»¼üÔËĞĞ±¾½Å±¾£¨Ctrl+Alt+F4£©£¿
-echo Y£½ÊÇ£¬N£½ÍË³ö¡£ÊäÈëÍê±ÏÔò°´»Ø³µ¼ü¼ÌĞø¡£
+echo æ˜¯å¦è®¾ç½®ä¸€é”®è¿è¡Œæœ¬è„šæœ¬ï¼ˆCtrl+Alt+F4ï¼‰ï¼Ÿ
+echo Yï¼æ˜¯ï¼ŒNï¼é€€å‡ºã€‚è¾“å…¥å®Œæ¯•åˆ™æŒ‰å›è½¦é”®ç»§ç»­ã€‚
 set OneKeyRunYorN=
 set /p OneKeyRunYorN=[Y/N/E]:
 if "%OneKeyRunYorN%" == "y" set OneKeyRunYorN=Y
 if "%OneKeyRunYorN%" == "n" set OneKeyRunYorN=N
 if "%OneKeyRunYorN%" == "Y" goto OneKeyRun
 if "%OneKeyRunYorN%" == "N" goto Exiting
-echo ¸ÃÃüÁî "%OneKeyRunYorN%" ²»´æÔÚ!
-echo ÃüÁîÌáÊ¾:Y£½ÊÇ£¬N£½ÍË³ö(²»Çø·Ö´óĞ¡Ğ´)
+echo è¯¥å‘½ä»¤ "%OneKeyRunYorN%" ä¸å­˜åœ¨!
+echo å‘½ä»¤æç¤º:Yï¼æ˜¯ï¼ŒNï¼é€€å‡º(ä¸åŒºåˆ†å¤§å°å†™)
 pause
 cls
 goto Finish
@@ -212,18 +212,18 @@ echo WshShell.run "attrib +h a_key.lnk",0 >> "%DesktopLocale%RSOKR.vbs"
 cd %DesktopLocale%
 cscript //nologo RSOKR.vbs
 
-echo ÉèÖÃÍê³É£¡°´ Ctrl+Alt+F4 ¼´¿ÉÔËĞĞ±¾½Å±¾¡£
+echo è®¾ç½®å®Œæˆï¼æŒ‰ Ctrl+Alt+F4 å³å¯è¿è¡Œæœ¬è„šæœ¬ã€‚
 goto Exiting
 
 :NoAccess
 echo,
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-echo ´íÎó£¡Ã»ÓĞÈ¨ÏŞÔËĞĞ¡£¿É³¢ÊÔ£º
-echo 1. Ê¹ÓÃÓÒ¼ü¡µÒÔ¹ÜÀíÔ±Éí·İÔËĞĞ¡£
+echo é”™è¯¯ï¼æ²¡æœ‰æƒé™è¿è¡Œã€‚å¯å°è¯•ï¼š
+echo 1. ä½¿ç”¨å³é”®ã€‰ä»¥ç®¡ç†å‘˜èº«ä»½è¿è¡Œã€‚
 
 
 :Exiting
 echo,
-echo °´ÈÎÒâ¼üÍË³ö±¾³ÌĞò...
+echo æŒ‰ä»»æ„é”®é€€å‡ºæœ¬ç¨‹åº...
 pause >nul
 exit
