@@ -2,7 +2,7 @@
 *没有之一*
 
 ## 下载链接
-[点击下载](https://yxsw1802.coding.net/p/ez-rskiller/d/ez-rskiller/git/raw/master/EZ-RSKiller.zip)
+[点击下载](https://github.com/SummonHIM/EZ-RSKiller/releases/download/5.0/EZ-RSKiller-5.0.zip)
 
 本脚本已经成功拷贝到学生可读文件夹。
 
