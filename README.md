@@ -1,6 +1,5 @@
 # 红蜘蛛杀手(EZ-RSKiller)官方网站
 *没有之一*
-[伽卡他卡杀手 绝赞发布中](https://gk.yxsw1802.com.cn)
 
 ## 下载链接
 [点击下载](https://yxsw1802.coding.net/p/ez-rskiller/d/ez-rskiller/git/raw/master/EZ-RSKiller.zip)
