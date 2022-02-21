@@ -1,0 +1,29 @@
+name: Releases
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install environment
+        run: apt install tofrodos zip
+
+      - name: Pack script to zip
+        run: |
+          todos EZ-RSKiller.bat
+          zip -r EZ-RSKiller-$GITHUB_ACTION.zip EZ-RSKiller.bat README.md
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.action }}
+          release_name: EZ-RSKiller ${{ github.action }}
+          draft: false
+          prerelease: false
