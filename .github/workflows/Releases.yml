@@ -15,7 +15,7 @@ jobs:
       - name: Pack script to zip
         run: |
           todos EZ-RSKiller.bat
-          zip -r EZ-RSKiller-$GITHUB_ACTION.zip EZ-RSKiller.bat README.md
+          zip -r EZ-RSKiller-$GITHUB_RUN_NUMBER.zip EZ-RSKiller.bat README.md
 
       - name: Create release
         id: create_release
@@ -23,8 +23,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.action }}
-          release_name: EZ-RSKiller ${{ github.action }}
+          tag_name: workflow-${{ github.run_number }}
+          release_name: EZ-RSKiller ${{ github.run_number }}
           draft: false
           prerelease: false
 
@@ -35,6 +35,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./EZ-RSKiller-${{ github.action }}.zip
-          asset_name: EZ-RSKiller-${{ github.action }}.zip
+          asset_path: ./EZ-RSKiller-${{ github.run_number }}.zip
+          asset_name: EZ-RSKiller-${{ github.run_number }}.zip
           asset_content_type: application/zip
