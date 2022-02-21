@@ -1,4 +1,5 @@
 # 红蜘蛛杀手(EZ-RSKiller)
+一键关闭红制作软件
 
 ## 官方网站
 [ez.yxsw1802.com.cn](https://ez.yxsw1802.com.cn)
