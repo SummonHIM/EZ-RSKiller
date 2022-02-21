@@ -1,15 +1,10 @@
 :Head
 @echo off
-set version=6.0
+set version=6.1
 mode con cols=66 lines=30
 
-ver|find "Windows XP" > NUL && set System=WinXP
-if "%System%"=="WinXP" (
-    set DocumentsLocale=C:\Documents and Settings\%username%\My Documents\
-    goto NoAdmin
-) else (
-    set DocumentsLocale=C:\Users\%username%\Documents\
-)
+for /f "tokens=2 delims=[" %%a in ('ver') do for /f "tokens=2" %%b in ("%%a") do for /f "tokens=1-2 delims=." %%c in ("%%b") do set windowsVersion=%%c
+if %windowsVersion% LEQ 5 goto NoAdmin
 
 echo,
 echo     /////     该脚本需要使用管理员权限才能正常运行。     /////
@@ -150,14 +145,14 @@ echo,
 echo [1] 尝试使用注册表方式查找（较快）
 echo [2] 尝试使用全盘扫描方式查找（较慢）
 echo [3] 尝试直接编辑 REDLocal.cfg 路径文件
-echo [4] 退出脚本
+echo [e] 退出脚本
 echo 输入完毕则按回车键继续。
 set NotFoundYorN=
-set /p NotFoundYorN=[1/2/3/4]:
+set /p NotFoundYorN=[1/2/3/e]:
 if "%NotFoundYorN%" == "1" goto RegSearch
 if "%NotFoundYorN%" == "2" goto FullDiskSearch
 if "%NotFoundYorN%" == "3" goto EditRedLocal
-if "%NotFoundYorN%" == "4" goto Exiting
+if /i "%NotFoundYorN%" == "e" goto Exiting
 echo,
 echo 该命令 "%NotFoundYorN%" 不存在!
 pause
