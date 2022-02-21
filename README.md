@@ -4,12 +4,6 @@
 ## 下载链接
 [点击下载](https://github.com/SummonHIM/EZ-RSKiller/releases/download/5.0/EZ-RSKiller-5.0.zip)
 
-本脚本已经成功拷贝到学生可读文件夹。
-
-  计一三四室为：学生可读\EZ
-  
-  计五六七室为：学生可读\install\Easy
-
 ## 使用提示
 1.最好将本脚本解压并复制到D盘等非自动恢复磁盘任意处，防止文件被重置。
 
