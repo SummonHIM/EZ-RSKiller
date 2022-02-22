@@ -22,7 +22,7 @@
         <section id="downloads">
           {% if site.show_downloads %}
             <a href="{{ site.zip_url }}" class="btn">下载 .zip 压缩包</a>
-            <a href="{{ site.mirror_zip_url }}" class="btn">大陆加速下载</a>
+            <a href="{{ site.mirror_url }}{{ site.zip_url }}" class="btn">大陆加速下载</a>
           {% endif %}
           <a href="{{ site.repository_url }}" class="btn btn-github" target="_blank"><span class="icon"></span>在 GitHub 上查看源代码</a>
         </section>

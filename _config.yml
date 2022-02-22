@@ -4,7 +4,7 @@ lang: zh-CN
 
 show_downloads: true
 zip_url: https://github.com/SummonHIM/EZ-RSKiller/releases/download/workflow-5/EZ-RSKiller-v6.1.zip
-mirror_zip_url: https://ghproxy.com/https://github.com/SummonHIM/EZ-RSKiller/releases/download/workflow-5/EZ-RSKiller-v6.1.zip
+mirror_url: https://ghproxy.com/
 repository_url: https://github.com/SummonHIM/EZ-RSKiller
 
 google_analytics:
