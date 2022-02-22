@@ -1,0 +1,10 @@
+title: 红蜘蛛杀手(EZ-RSKiller)官方网站
+description: 一键关闭红蜘蛛软件
+lang: zh-CN
+
+show_downloads: true
+zip_url: https://cf-ipfs.com/ipfs/QmZYJDaTU4hNNLfn1GJaJdaWzTQR2zcu81PYuCsjFS9iXY?filename=EZ-RSKiller-v6.1.zip
+repository_url: https://github.com/SummonHIM/EZ-RSKiller
+
+google_analytics:
+theme: jekyll-theme-hacker
