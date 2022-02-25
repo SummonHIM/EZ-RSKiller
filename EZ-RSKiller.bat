@@ -1,7 +1,8 @@
 :Head
 @echo off
-set version=6.1
 mode con cols=66 lines=30
+setlocal enabledelayedexpansion
+set version=6.2
 
 for /f "tokens=2 delims=[" %%a in ('ver') do for /f "tokens=2" %%b in ("%%a") do for /f "tokens=1-2 delims=." %%c in ("%%b") do set windowsVersion=%%c
 if %windowsVersion% LEQ 5 goto NoAdmin
@@ -27,98 +28,73 @@ if exist "%~dp0REDLocal.cfg" (
 color 4E
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 echo 首次启动，正在查找红蜘蛛具体位置。请稍候...
-echo,
 echo REDLocal.cfg 文件尽量不要删除，该文件用于定位红蜘蛛具体位置！
-
-for /f "tokens=1,2,*" %%i in ('reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\3000soft\Red Spider" /v "AgentCommand" ^| find /i "AgentCommand"') do set RedAgentPath=%%k
-if "%regValue%"=="" for /f "tokens=1,2,*" %%i in ('reg query "HKEY_LOCAL_MACHINE\SOFTWARE\3000soft\Red Spider" /v "AgentCommand" ^| find /i "AgentCommand"') do set RedAgentPath=%%k
-set RedAgentPath=%RedAgentPath:~0,-12%
+echo,
+for /f "tokens=1,2,*" %%i in ('reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\3000soft\Red Spider" /v "AgentCommand" ^| find /i "AgentCommand"') do set RedAgentPath=%%~dpk
+if "%regValue%"=="" for /f "tokens=1,2,*" %%i in ('reg query "HKEY_LOCAL_MACHINE\SOFTWARE\3000soft\Red Spider" /v "AgentCommand" ^| find /i "AgentCommand"') do set RedAgentPath=%%~dpk
+echo 注册表查询到路径 %RedAgentPath%。正在检查是否可用...
 if not exist "%RedAgentPath%REDAgent.exe" (
-    if not exist "%RedAgentPath%REDAgent.disabled" (
-        goto RedAgentNotFound
-    ) else (
-        goto FTRContinue
-    )
-) else (
-    goto FTRContinue
+    if not exist "%RedAgentPath%REDAgent.disabled" goto RedAgentNotFound
 )
-pause
+echo 该路径有效。
+echo %RedAgentPath%>"%~dp0REDLocal.cfg"
+if not exist "%~dp0REDLocal.cfg" goto NoAccess
+goto CheckRedAgentStatus
 
 :FullDiskSearch
 color 4E
 echo,
-echo 请输入欲扫描的盘符：
-echo 请不要将“:\”填入。
-echo 例如我想扫描 C 盘则直接输入：C
+echo 请输入欲扫描的盘符。
+echo 注：请不要将“:\”填入。若想扫描 C 盘则直接输入：C
 echo,
-set /p FTRDisk=请输入：
-echo,
+set /p FTRDisk=请输入欲扫描的盘符：
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 echo 正在查找位于 “%FTRDisk%:\” 盘的红蜘蛛具体位置。请稍候...
 echo 查找速度可能较慢，请耐心等待！
 echo,
 echo REDLocal.cfg 文件尽量不要删除，该文件用于定位红蜘蛛具体位置！
 echo,
-set FindData=0
+set FDSPass=0
 
-:FTRReFind
-for /r %FTRDisk%:\ %%i in (NetTalk.exe*)do (
-    set RedAgentPath=%%~dpi
-    if "%FindData%"== "1" set RedAgentPath1=%%~dpi
-    if "%FindData%"== "2" set RedAgentPath2=%%~dpi
-    if "%FindData%" == "3" (
-        if "%RedAgentPath1%" == "%RedAgentPath2%" (
-            goto FTRFind
+:FullDiskSearching
+for /r %FTRDisk%:\ %%i in (REDAgent*)do (
+    echo 正在检查 “%%~dpi” 文件夹...
+    if exist "%%~dpiREDAgent.exe" (
+        if exist "%%~dpiAdapter.exe" (
+            set /a FDSPass+=1
         )
-        set FindData=0
-    )
-    set /a FindData=%FindData%+1
-    echo 查询到路径（红蜘蛛 6.0）：%%~dpi
-    if not exist %%~dpiREDAgent.exe (
-        if not exist %%~dpiREDAgent.disabled ( 
-            goto FTRReFind
-        ) else ( 
-            goto FTRContinue
+        if exist "%%~dpiedpaper.exe" (
+            set /a FDSPass+=1
         )
-    ) else ( 
-        goto FTRContinue 
+        if exist "%%~dpirepview.exe" (
+            set /a FDSPass+=1
+        )
     )
-)
-
-:FTRFind
-for /r %FTRDisk%:\ %%i in (edpaper.exe*)do (
-    set RedAgentPath=%%~dpi
-    if "%FindData%"== "1" set RedAgentPath1=%%~dpi
-    if "%FindData%"== "2" set RedAgentPath2=%%~dpi
-    if "%FindData%" == "3" (
-        if "%RedAgentPath1%" == "%RedAgentPath2%" goto RedAgentNotFound
-        set FindData=0
+    if exist "%%~dpiREDAgent.disabled" (
+        if exist "%%~dpiAdapter.exe" (
+            set /a FDSPass+=1
+        )
+        if exist "%%~dpiedpaper.exe" (
+            set /a FDSPass+=1
+        )
+        if exist "%%~dpirepview.exe" (
+            set /a FDSPass+=1
+        )
     )
-    set /a FindData=%FindData%+1
-    echo 查询到路径（红蜘蛛 7.0）：%%~dpi
-    if not exist %%~dpiREDAgent.exe (
-        if not exist %%~dpiREDAgent.disabled (
-            goto FTRReFind
+    if !FDSPass! GEQ 3 (
+        echo 查找完成！红蜘蛛软件运行路径为：%%~dpi
+        echo,
+        echo 正在将路径保存到 REDLocal.cfg
+        echo %%~dpi>"%~dp0REDLocal.cfg"
+        if not exist "%~dp0REDLocal.cfg" (
+            goto NoAccess
         ) else (
-            goto FTRContinue
+            echo 保存成功！
         )
-    ) else (
-        goto FTRContinue
+        goto CheckRedAgentStatus
     )
 )
-
-:FTRContinue
-echo,
-echo 查找结束，红蜘蛛软件的路径为：
-echo %RedAgentPath%
-echo,
-echo 正在将路径保存到 REDLocal.cfg
-echo %RedAgentPath%>"%~dp0REDLocal.cfg"
-if not exist "%~dp0REDLocal.cfg" (
-    goto NoAccess
-) else (
-    echo 保存成功！
-)
+goto RedAgentNotFound
 
 :CheckRedAgentStatus
 set /P RedAgentPath=<"%~dp0REDLocal.cfg"
@@ -160,7 +136,7 @@ cls
 goto RedAgentNotFound
 
 :EditRedLocal
-echo,
+echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 echo 请将红蜘蛛软件的路径输入到此处。
 echo 例：C:\Program Files\3000soft\Red Spider\
 echo 请务必在路径最后面加一个下划线“\”，避免错误！
@@ -179,39 +155,42 @@ goto Head
 
 :ShutdownRedAgent
 color 4E
+cls
+echo                          红蜘蛛杀手 V%version%
+echo                        ez.yxsw1802.com.cn
+echo                     Copyright %date:~0,4% SummonHIM.
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 echo 正在执行一键关闭程序...
 taskkill /f /im REDAgent.exe /t
 rename "%RedAgentPath%REDAgent.exe" REDAgent.disabled
 if errorlevel 1 goto NoAccess
 echo 已将 REDAgent.exe 重命名为 REDAgent.disabled
-echo 正在完成！
 set RedAgentStatus=Closed
 goto Finish
 
 :StartRedAgent
 color 4E
+cls
+echo                          红蜘蛛杀手 V%version%
+echo                        ez.yxsw1802.com.cn
+echo                     Copyright %date:~0,4% SummonHIM.
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 echo 确定要恢复红蜘蛛软件吗？
 echo 否则关闭此脚本即可。
 echo,
 echo 按任意键继续操作...
 pause >nul
+echo,
 rename "%RedAgentPath%REDAgent.disabled" REDAgent.exe
 if errorlevel 1 goto NoAccess
 echo 已将 REDAgent.disabled 重命名为 REDAgent.exe
 echo 正在强制启动红蜘蛛软件...
 start /d "%RedAgentPath%" REDAgent.exe
-echo 正在完成！
 set RedAgentStatus=Started
 goto Finish
 
 :Finish
 color 2F
-cls
-echo                          红蜘蛛杀手 V%version%
-echo                        ez.yxsw1802.com.cn
-echo                     Copyright %date:~0,4% SummonHIM.
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 if "%RedAgentStatus%" == "Closed" (
     echo                         红蜘蛛软件已关闭！
