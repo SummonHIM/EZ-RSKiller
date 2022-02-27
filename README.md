@@ -4,8 +4,6 @@
 ## 官方网站
 [ez.yxsw1802.com.cn](https://ez.yxsw1802.com.cn)
 
-[Github 下载](https://github.com/SummonHIM/EZ-RSKiller/releases)
-
 ## 产品优势
 - 开源脚本，免费无毒。源代码随时可查。
 - 无论是红蜘蛛 6.0 版本或 7.0 版本均可扫描并强制关闭。
@@ -18,6 +16,7 @@
 
 ## 未来功能计划
 - 使用快捷键快速调起脚本。
+- 绕过红蜘蛛 7.0 异常退出检测。
 
 ## 开源许可协议
 This Source Code Form is subject to the terms of the Mozilla Public

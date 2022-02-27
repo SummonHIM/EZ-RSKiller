@@ -1,12 +1,14 @@
 :Head
+title 启动中...
 @echo off
 mode con cols=66 lines=30
 setlocal enabledelayedexpansion
-set version=6.2
+set version=6.3
 
 for /f "tokens=2 delims=[" %%a in ('ver') do for /f "tokens=2" %%b in ("%%a") do for /f "tokens=1-2 delims=." %%c in ("%%b") do set windowsVersion=%%c
 if %windowsVersion% LEQ 5 goto NoAdmin
 
+title 获取管理员权限...
 echo,
 echo     /////     该脚本需要使用管理员权限才能正常运行。     /////
 echo     /////               请允许管理员权限！               /////
@@ -30,9 +32,11 @@ echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 echo 首次启动，正在查找红蜘蛛具体位置。请稍候...
 echo REDLocal.cfg 文件尽量不要删除，该文件用于定位红蜘蛛具体位置！
 echo,
+echo 尝试查找注册表路径“HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\3000soft\Red Spider\AgentCommand”中的红蜘蛛路径...
 for /f "tokens=1,2,*" %%i in ('reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\3000soft\Red Spider" /v "AgentCommand" ^| find /i "AgentCommand"') do set RedAgentPath=%%~dpk
-if "%regValue%"=="" for /f "tokens=1,2,*" %%i in ('reg query "HKEY_LOCAL_MACHINE\SOFTWARE\3000soft\Red Spider" /v "AgentCommand" ^| find /i "AgentCommand"') do set RedAgentPath=%%~dpk
-echo 注册表查询到路径 %RedAgentPath%。正在检查是否可用...
+echo 尝试查找注册表路径“HKEY_LOCAL_MACHINE\SOFTWARE\3000soft\Red Spider\AgentCommand”中的红蜘蛛路径...
+for /f "tokens=1,2,*" %%i in ('reg query "HKEY_LOCAL_MACHINE\SOFTWARE\3000soft\Red Spider" /v "AgentCommand" ^| find /i "AgentCommand"') do set RedAgentPath=%%~dpk
+echo 注册表查询到路径“%RedAgentPath%”。正在检查是否可用...
 if not exist "%RedAgentPath%REDAgent.exe" (
     if not exist "%RedAgentPath%REDAgent.disabled" goto RedAgentNotFound
 )
@@ -49,7 +53,7 @@ echo 注：请不要将“:\”填入。若想扫描 C 盘则直接输入：C
 echo,
 set /p FTRDisk=请输入欲扫描的盘符：
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-echo 正在查找位于 “%FTRDisk%:\” 盘的红蜘蛛具体位置。请稍候...
+echo 正在查找位于“%FTRDisk%:\”盘的红蜘蛛具体位置。请稍候...
 echo 查找速度可能较慢，请耐心等待！
 echo,
 echo REDLocal.cfg 文件尽量不要删除，该文件用于定位红蜘蛛具体位置！
