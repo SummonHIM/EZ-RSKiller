@@ -14,6 +14,9 @@ layout: default
 ## 未来功能计划
 - 使用快捷键快速调起脚本。
 
+## 下载屏幕锁定状态高清伪装图
+[点击下载 PNG（1920*1080）图片](https://ez.yxsw1802.com.cn/assets/images/lock-slient.png)
+
 ## 开源许可协议
 This Source Code Form is subject to the terms of the Mozilla Public
 License, v. 2.0. If a copy of the MPL was not distributed with this
