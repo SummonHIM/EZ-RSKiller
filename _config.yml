@@ -1,6 +1,7 @@
 title: 红蜘蛛杀手(EZ-RSKiller)官方网站
 description: 一键关闭红蜘蛛软件
 lang: zh-CN
+url: "https://ez.yxsw1802.com.cn"
 
 show_downloads: true
 zip_url: https://github.com/SummonHIM/EZ-RSKiller/releases/download/workflow-7/EZ-RSKiller-6.3.zip
@@ -9,3 +10,8 @@ repository_url: https://github.com/SummonHIM/EZ-RSKiller
 
 google_analytics:
 theme: jekyll-theme-hacker
+
+sitemap: false
+
+plugins:
+  - jekyll-sitemap
