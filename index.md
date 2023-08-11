@@ -11,9 +11,6 @@ layout: default
 2. 如果已经被控制，请使用 `Ctrl+Alt+Delete` 键进入安全模式。点击“切换用户”，然后点击用户头像即可脱离控制。（该方法仅 Windows 7 系统有效）
 3. 管理员可能会删除本脚本，建议用纸笔记下本脚本永久网址：[ez.yxsw1802.com.cn](https://ez.yxsw1802.com.cn)。
 
-## 未来功能计划
-- 使用快捷键快速调起脚本。
-
 ## 下载屏幕锁定状态高清伪装图
 [点击下载 PNG（1920*1080）图片](https://ez.yxsw1802.com.cn/assets/images/lock-slient.png)
 
