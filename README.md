@@ -14,10 +14,6 @@
 2. 如果已经被控制，请使用 `Ctrl+Alt+Delete` 键进入安全模式。点击“切换用户”，然后点击用户头像即可脱离控制。（该方法仅 Windows 7 系统有效）
 3. 管理员可能会删除本脚本，建议用纸笔记下本脚本永久网址：[ez.yxsw1802.com.cn](https://ez.yxsw1802.com.cn)。
 
-## 未来功能计划
-- 使用快捷键快速调起脚本。
-- 绕过红蜘蛛 7.0 异常退出检测。
-
 ## 开源许可协议
 This Source Code Form is subject to the terms of the Mozilla Public
 License, v. 2.0. If a copy of the MPL was not distributed with this
